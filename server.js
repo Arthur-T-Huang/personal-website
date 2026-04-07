@@ -80,6 +80,10 @@ app.get('/api/spotify/recently-played', async (req, res) => {
       headers: { Authorization: `Bearer ${token}` },
     })
     const data = await response.json()
+    if (!response.ok) {
+      console.error('Spotify API error:', JSON.stringify(data, null, 2))
+      return res.status(response.status).json({ error: data.error?.message || 'Spotify API error' })
+    }
     res.json(data)
   } catch (err) {
     console.error('Spotify error:', err.message)
