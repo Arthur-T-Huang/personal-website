@@ -211,6 +211,31 @@ footer p{color:rgba(255,253,251,0.3);font-size:0.72rem;letter-spacing:0.1em;}
 .stagger-3{transition-delay:0.3s;}
 .stagger-4{transition-delay:0.4s;}
 
+/* SPOTIFY RECENT */
+.spotify-intro{font-size:0.78rem;color:var(--muted);font-weight:600;font-style:italic;margin-top:1.2rem;margin-bottom:0.6rem;}
+.spotify-recent{margin-top:0;border:1px solid var(--border);background:var(--offwhite);}
+.spotify-header{display:flex;align-items:center;gap:0.5rem;padding:0.75rem 1rem;border-bottom:1px solid var(--border);background:var(--seashell);}
+.spotify-icon{color:#1DB954;display:flex;align-items:center;}
+.spotify-label{font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+.spotify-tracks{list-style:none;}
+.spotify-track{border-bottom:1px solid var(--border);}
+.spotify-track:last-child{border-bottom:none;}
+.spotify-track-link{display:flex;align-items:center;gap:0.75rem;padding:0.6rem 1rem;text-decoration:none;transition:background 0.2s;}
+.spotify-track-link:hover{background:var(--seashell);}
+.spotify-art{width:36px;height:36px;object-fit:cover;flex-shrink:0;border:1px solid var(--border);}
+.spotify-info{flex:1;min-width:0;display:flex;flex-direction:column;gap:0.1rem;}
+.spotify-name{font-size:0.8rem;color:var(--black);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.spotify-artist{font-size:0.72rem;color:var(--muted);font-weight:300;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.spotify-time{font-size:0.65rem;color:var(--muted);letter-spacing:0.05em;flex-shrink:0;}
+.spotify-empty{padding:1rem;font-size:0.8rem;color:var(--muted);text-align:center;}
+.spotify-state{padding:0.5rem 0;}
+.spotify-skeleton{display:flex;align-items:center;gap:0.75rem;padding:0.6rem 1rem;border-bottom:1px solid var(--border);}
+.spotify-skeleton:last-child{border-bottom:none;}
+.skeleton-art{width:36px;height:36px;background:var(--border);flex-shrink:0;animation:shimmer 1.4s infinite;}
+.skeleton-text{flex:1;display:flex;flex-direction:column;gap:0.4rem;}
+.skeleton-line{height:8px;background:var(--border);border-radius:2px;animation:shimmer 1.4s infinite;}
+@keyframes shimmer{0%,100%{opacity:0.5;}50%{opacity:1;}}
+
 @media(max-width:768px){
   nav{padding:1rem 1.5rem;}
   .nav-links{gap:1.2rem;}

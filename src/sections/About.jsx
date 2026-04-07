@@ -1,4 +1,5 @@
 import Slideshow from '../components/Slideshow'
+import SpotifyRecent from '../components/SpotifyRecent'
 
 export default function About() {
   return (
@@ -47,6 +48,8 @@ export default function About() {
           </div>
           <div className="reveal">
             <Slideshow />
+            <p className="spotify-intro">See what I've been listening to lately</p>
+            <SpotifyRecent />
           </div>
         </div>
       </div>
