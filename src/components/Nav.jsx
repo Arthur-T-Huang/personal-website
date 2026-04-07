@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 const links = ['about', 'skills', 'projects', 'experience', 'education', 'contact']
 
@@ -42,6 +43,9 @@ export default function Nav() {
               <a href={`#${id}`}>{id.charAt(0).toUpperCase() + id.slice(1)}</a>
             </li>
           ))}
+          <li>
+            <Link to="/resume">Resume</Link>
+          </li>
         </ul>
       </nav>
       <button

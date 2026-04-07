@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import Slideshow from '../components/Slideshow'
 import SpotifyRecent from '../components/SpotifyRecent'
 
@@ -36,14 +37,9 @@ export default function About() {
             <div className="contact-row reveal stagger-4">
               <a href="mailto:huang.arth@northeastern.edu" className="contact-chip">huang.arth@northeastern.edu</a>
               <a href="tel:5183645297" className="contact-chip">518-364-5297</a>
-              <a
-                href="https://drive.google.com/uc?export=download&id=1CvS9rHAZNMBbQYxRIh_7xD2PMm-q8epR"
-                target="_blank"
-                rel="noreferrer"
-                className="contact-chip resume-chip"
-              >
+              <Link to="/resume" className="contact-chip resume-chip">
                 ⬇ Resume
-              </a>
+              </Link>
             </div>
           </div>
           <div className="reveal">
