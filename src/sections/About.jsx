@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { DotLottieReact } from '@lottiefiles/dotlottie-react'
 import Slideshow from '../components/Slideshow'
 import SpotifyRecent from '../components/SpotifyRecent'
+import LetterboxdRecent from '../components/LetterboxdRecent'
 
 export default function About() {
   return (
@@ -53,6 +54,8 @@ export default function About() {
             <Slideshow />
             <p className="spotify-intro">See what I've been listening to lately</p>
             <SpotifyRecent />
+            <p className="spotify-intro" style={{ marginTop: '1.5rem' }}>My favorite films</p>
+            <LetterboxdRecent />
           </div>
         </div>
       </div>

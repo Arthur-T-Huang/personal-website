@@ -73,9 +73,9 @@ section{padding:6rem 2rem;position:relative;}
 #about .container{max-width:1300px;}
 .about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:start;}
 .about-left{display:flex;flex-direction:column;}
-.about-lotties{display:flex;flex-direction:row;gap:0;margin-top:0.5rem;align-items:flex-end;}
-.about-golf-lottie{width:50%;margin-bottom:1.5rem;}
-.about-food-lottie{width:50%;margin-top:3rem;}
+.about-lotties{display:flex;flex-direction:column;gap:0;margin-top:0.5rem;}
+.about-golf-lottie{width:100%;}
+.about-food-lottie{width:100%;}
 .about-text p{color:var(--mid);font-weight:300;margin-bottom:1.1rem;font-size:0.93rem;}
 .about-text p span{color:var(--black);font-weight:500;}
 .hobbies-section{margin-top:1.8rem;border-top:1px solid var(--border);padding-top:1.5rem;}
@@ -268,6 +268,23 @@ footer p{color:rgba(255,253,251,0.3);font-size:0.72rem;letter-spacing:0.1em;}
 .skeleton-text{flex:1;display:flex;flex-direction:column;gap:0.4rem;}
 .skeleton-line{height:8px;background:var(--border);border-radius:2px;animation:shimmer 1.4s infinite;}
 @keyframes shimmer{0%,100%{opacity:0.5;}50%{opacity:1;}}
+
+/* LETTERBOXD RECENT */
+.lb-recent{margin-top:0;border:1px solid var(--border);background:var(--offwhite);}
+.lb-header{display:flex;align-items:center;gap:0.5rem;padding:0.75rem 1rem;border-bottom:1px solid var(--border);background:var(--seashell);}
+.lb-icon{color:#00c030;display:flex;align-items:center;}
+.lb-label{font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+.lb-films{list-style:none;}
+.lb-film{border-bottom:1px solid var(--border);}
+.lb-film:last-child{border-bottom:none;}
+.lb-film-link{display:flex;align-items:center;gap:0.75rem;padding:0.6rem 1rem;text-decoration:none;transition:background 0.2s;}
+.lb-film-link:hover{background:var(--seashell);}
+.lb-poster{width:30px;height:44px;object-fit:cover;flex-shrink:0;border:1px solid var(--border);}
+.lb-poster-placeholder{width:30px;height:44px;background:var(--seashell);display:flex;align-items:center;justify-content:center;color:var(--muted);flex-shrink:0;border:1px solid var(--border);}
+.lb-info{flex:1;min-width:0;display:flex;flex-direction:column;gap:0.15rem;}
+.lb-title{font-size:0.8rem;color:var(--black);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.lb-stars{font-size:0.7rem;color:var(--gold);letter-spacing:0.05em;}
+.lb-date{font-size:0.65rem;color:var(--muted);letter-spacing:0.05em;}
 
 @media(max-width:768px){
   nav{padding:1rem 1.5rem;}

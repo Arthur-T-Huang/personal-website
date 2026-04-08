@@ -93,6 +93,50 @@ app.get('/api/spotify/recently-played', async (req, res) => {
   }
 })
 
+// ── Letterboxd RSS ────────────────────────────────────────────────────────────
+
+app.get('/api/letterboxd/recent', async (req, res) => {
+  try {
+    const username = process.env.LETTERBOXD_USERNAME || 'arthurhuang'
+    // Letterboxd doesn't have a rated/5 RSS — use the watchlist or general diary feed
+    // and filter by rating client-side; fallback to general activity RSS
+    const urls = [
+      `https://letterboxd.com/${username}/films/rated/.5-5/rss/`,
+      `https://letterboxd.com/${username}/rss/`,
+    ]
+    let xml = null
+    for (const url of urls) {
+      const r = await fetch(url)
+      if (r.ok) { xml = await r.text(); break }
+    }
+    if (!xml) throw new Error('Could not fetch Letterboxd RSS')
+
+    // Parse items from RSS
+    const items = []
+    const itemMatches = xml.matchAll(/<item>([\s\S]*?)<\/item>/g)
+    for (const [, block] of itemMatches) {
+      const title       = block.match(/<letterboxd:filmTitle>(.*?)<\/letterboxd:filmTitle>/)?.[1] ?? block.match(/<title[^>]*>(.*?)<\/title>/)?.[1] ?? ''
+      const year        = block.match(/<letterboxd:filmYear>(.*?)<\/letterboxd:filmYear>/)?.[1] ?? ''
+      const rating      = block.match(/<letterboxd:memberRating>(.*?)<\/letterboxd:memberRating>/)?.[1] ?? null
+      const watchedDate = block.match(/<letterboxd:watchedDate>(.*?)<\/letterboxd:watchedDate>/)?.[1] ?? ''
+      const link        = block.match(/<link>\s*(.*?)\s*<\/link>/)?.[1] ?? ''
+      const poster      = block.match(/<img src="(https:\/\/a\.ltximg\.com[^"]+)"/)?.[1]
+                       ?? block.match(/<img src="([^"]+)"/)?.[1]
+                       ?? null
+
+      if (title && rating && parseFloat(rating) === 5) {
+        items.push({ title, year, rating: 5, watchedDate, link, poster })
+      }
+      if (items.length >= 6) break
+    }
+
+    res.json(items)
+  } catch (err) {
+    console.error('Letterboxd error:', err.message)
+    res.status(500).json({ error: err.message })
+  }
+})
+
 // ── Contact form ──────────────────────────────────────────────────────────────
 
 app.post('/api/contact', async (req, res) => {
