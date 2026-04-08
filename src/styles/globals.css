@@ -70,7 +70,12 @@ section{padding:6rem 2rem;position:relative;}
 /* ABOUT */
 #about{background:var(--seashell);overflow:hidden;}
 #about::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(135deg,rgba(23,68,111,0.04) 0px,rgba(23,68,111,0.04) 1px,transparent 1px,transparent 60px);pointer-events:none;}
-.about-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:5rem;align-items:start;}
+#about .container{max-width:1300px;}
+.about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:start;}
+.about-left{display:flex;flex-direction:column;}
+.about-lotties{display:flex;flex-direction:row;gap:0;margin-top:0.5rem;align-items:flex-end;}
+.about-golf-lottie{width:50%;margin-bottom:1.5rem;}
+.about-food-lottie{width:50%;margin-top:3rem;}
 .about-text p{color:var(--mid);font-weight:300;margin-bottom:1.1rem;font-size:0.93rem;}
 .about-text p span{color:var(--black);font-weight:500;}
 .hobbies-section{margin-top:1.8rem;border-top:1px solid var(--border);padding-top:1.5rem;}
