@@ -27,20 +27,6 @@ portfolio/
 | **Education** | Northeastern University details, GPA, and coursework |
 | **Contact** | Email, phone, GitHub, LinkedIn links |
 
-
-## 🚀 Deployment
-
-### Option 1 — Netlify (Recommended)
-1. Go to [netlify.com](https://netlify.com) and sign up for free
-2. Drag and drop `index.html` onto the Netlify dashboard
-3. Your site is live instantly at a `*.netlify.app` URL
-
-### Option 2 — GitHub Pages
-1. Create a new GitHub repository
-2. Upload `index.html` to the repo
-3. Go to **Settings → Pages → Source** and select `main` branch
-4. Your site will be live at `https://username.github.io/repo-name`
-
 ---
 
 ## 📬 Contact
