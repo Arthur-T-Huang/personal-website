@@ -190,9 +190,24 @@ section{padding:6rem 2rem;position:relative;}
 .contact-inner .section-rule{background:var(--gold);}
 .contact-inner p{color:rgba(255,253,251,0.7);font-weight:300;margin-bottom:2.5rem;font-size:0.93rem;}
 .contact-actions{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-bottom:3rem;}
-.contact-socials{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;padding-top:2rem;border-top:1px solid rgba(255,253,251,0.15);}
+.contact-socials{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;padding-top:2rem;border-top:1px solid rgba(255,253,251,0.15);margin-top:3rem;}
 .social-link{color:rgba(255,253,251,0.55);text-decoration:none;font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;transition:all 0.3s;display:flex;align-items:center;gap:0.5rem;}
 .social-link:hover{color:var(--gold2);transform:translateY(-2px);}
+.contact-form{width:100%;margin-bottom:0;}
+.contact-form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
+.contact-field{display:flex;flex-direction:column;gap:0.45rem;margin-bottom:1.2rem;}
+.contact-field label{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,253,251,0.45);font-weight:500;}
+.contact-field input,.contact-field textarea{background:rgba(255,253,251,0.06);border:1px solid rgba(255,253,251,0.15);color:var(--offwhite);padding:0.75rem 1rem;font-family:'Inter',sans-serif;font-size:0.875rem;outline:none;resize:none;transition:border-color 0.25s,background 0.25s;border-radius:0;}
+.contact-field input::placeholder,.contact-field textarea::placeholder{color:rgba(255,253,251,0.25);}
+.contact-field input:focus,.contact-field textarea:focus{border-color:var(--gold);background:rgba(255,253,251,0.09);}
+.contact-submit{margin-top:0.5rem;width:100%;cursor:pointer;background:none;font-family:'Inter',sans-serif;}
+.contact-submit:disabled{opacity:0.55;cursor:not-allowed;}
+.contact-error{font-size:0.78rem;color:#e87c7c;margin-bottom:0.75rem;letter-spacing:0.04em;}
+.contact-success{display:flex;flex-direction:column;align-items:center;gap:1.2rem;padding:3rem 0;color:rgba(255,253,251,0.7);}
+.contact-success svg{stroke:var(--gold);opacity:0.9;}
+.contact-success p{font-size:0.93rem;font-weight:300;}
+.contact-success .btn{border-color:rgba(255,253,251,0.35);}
+@media(max-width:540px){.contact-form-row{grid-template-columns:1fr;}}
 
 /* BACK TO TOP */
 #back-to-top{position:fixed;bottom:2rem;right:2rem;width:40px;height:40px;background:var(--cobalt);color:var(--offwhite);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(10px);transition:all 0.3s;z-index:99;}

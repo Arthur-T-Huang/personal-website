@@ -1,4 +1,35 @@
+import { useState } from 'react'
+
 export default function Contact() {
+  const [form, setForm] = useState({ name: '', email: '', message: '' })
+  const [status, setStatus] = useState('idle') // idle | loading | success | error
+  const [errorMsg, setErrorMsg] = useState('')
+
+  function handleChange(e) {
+    setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault()
+    setStatus('loading')
+    setErrorMsg('')
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.error || 'Something went wrong.')
+      setStatus('success')
+      setForm({ name: '', email: '', message: '' })
+    } catch (err) {
+      setErrorMsg(err.message)
+      setStatus('error')
+    }
+  }
+
   return (
     <section id="contact">
       <div className="container">
@@ -7,17 +38,75 @@ export default function Contact() {
           <h2 className="section-title reveal">Let's Connect</h2>
           <div className="section-rule reveal" style={{ margin: '0 auto 2rem' }} />
           <p className="reveal">
-            I'm open to co-op and internship opportunities in software engineering, machine learning, and robotics for
-            June – August 2026.
+            I'm open to co-op and internship opportunities in software engineering, machine learning, robotics, and AI.
           </p>
-          <div className="contact-actions reveal">
-            <a href="mailto:huang.arth@northeastern.edu?subject=Let's Connect" className="btn btn-fill">
-              <span>Send a Message</span>
-            </a>
-            <a href="tel:5183645297" className="btn">
-              <span>518-364-5297</span>
-            </a>
-          </div>
+
+          {status === 'success' ? (
+            <div className="contact-success reveal">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+              <p>Message sent — I'll be in touch soon.</p>
+              <button className="btn" onClick={() => setStatus('idle')}>
+                <span>Send Another</span>
+              </button>
+            </div>
+          ) : (
+            <form className="contact-form reveal" onSubmit={handleSubmit} noValidate>
+              <div className="contact-form-row">
+                <div className="contact-field">
+                  <label htmlFor="name">Name</label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    autoComplete="name"
+                    required
+                    value={form.name}
+                    onChange={handleChange}
+                    placeholder="Your name"
+                  />
+                </div>
+                <div className="contact-field">
+                  <label htmlFor="email">Email</label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    required
+                    value={form.email}
+                    onChange={handleChange}
+                    placeholder="your@email.com"
+                  />
+                </div>
+              </div>
+              <div className="contact-field">
+                <label htmlFor="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  required
+                  value={form.message}
+                  onChange={handleChange}
+                  placeholder="What's on your mind?"
+                />
+              </div>
+              {status === 'error' && (
+                <p className="contact-error">{errorMsg}</p>
+              )}
+              <button
+                type="submit"
+                className="btn btn-fill contact-submit"
+                disabled={status === 'loading'}
+              >
+                <span>{status === 'loading' ? 'Sending…' : 'Send Message'}</span>
+              </button>
+            </form>
+          )}
+
           <div className="contact-socials reveal">
             <a href="https://github.com/Arthur-T-Huang" target="_blank" rel="noreferrer" className="social-link">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

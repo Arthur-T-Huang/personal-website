@@ -1,9 +1,11 @@
 import 'dotenv/config'
 import express from 'express'
 import cors from 'cors'
+import nodemailer from 'nodemailer'
 
 const app = express()
 app.use(cors())
+app.use(express.json())
 
 const { SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_REFRESH_TOKEN } = process.env
 const REDIRECT_URI = 'http://127.0.0.1:3001/callback'
@@ -88,6 +90,41 @@ app.get('/api/spotify/recently-played', async (req, res) => {
   } catch (err) {
     console.error('Spotify error:', err.message)
     res.status(500).json({ error: err.message })
+  }
+})
+
+// ── Contact form ──────────────────────────────────────────────────────────────
+
+app.post('/api/contact', async (req, res) => {
+  const { name, email, message } = req.body
+  if (!name || !email || !message) {
+    return res.status(400).json({ error: 'All fields are required.' })
+  }
+
+  try {
+    const transporter = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS.replace(/\s/g, ''),
+      },
+    })
+
+    await transporter.sendMail({
+      from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
+      to: process.env.EMAIL_USER,
+      replyTo: email,
+      subject: `Portfolio message from ${name}`,
+      text: `From: ${name} <${email}>\n\n${message}`,
+      html: `<p><strong>From:</strong> ${name} &lt;${email}&gt;</p><p style="white-space:pre-wrap">${message}</p>`,
+    })
+
+    res.json({ success: true })
+  } catch (err) {
+    console.error('Contact email error:', err.message)
+    res.status(500).json({ error: 'Failed to send message. Please try again.' })
   }
 })
 
