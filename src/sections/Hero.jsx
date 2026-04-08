@@ -66,7 +66,7 @@ export default function Hero() {
         <div className="hero-divider" />
         <p className="hero-eyebrow">Computer Science · Artificial Intelligence · Electrical Engineering</p>
         <div className="hero-btns">
-          <a href="#projects" className="btn btn-fill"><span>View My Work</span></a>
+          <a href="#experience" className="btn btn-fill"><span>View My Experiences</span></a>
           <a href="#contact" className="btn"><span>Get In Touch</span></a>
         </div>
       </div>
