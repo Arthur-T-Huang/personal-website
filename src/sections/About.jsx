@@ -15,7 +15,7 @@ export default function About() {
               <h2 className="section-title reveal">Getting to Know Me</h2>
               <div className="section-rule reveal" />
               <p className="reveal stagger-1">
-                I'm a Computer Science student at Northeastern University concentrating in Artificial Intelligence with a
+                Hi! My name is Arthur Huang and I'm a Computer Science student at Northeastern University concentrating in Artificial Intelligence with a
                 minor in Electrical Engineering. I currently serve as a Technology Engineer Co-op at Harvard University IT
                 and a Robotics Navigation Researcher at WPI's Aerial-robot Control & Perception Lab, with prior experience
                 as an Aerial Robotics Intern at NYU's ARPL and a Teaching Assistant at Khoury College.
