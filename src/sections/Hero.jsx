@@ -62,7 +62,7 @@ export default function Hero() {
     <section id="hero">
       <div className="hero-content">
         <h1 className="hero-name">Arthur Huang</h1>
-        <p className="hero-title">Northeastern University, Boston, MA &nbsp;·&nbsp; GPA 3.93 / 4.0</p>
+        <p className="hero-title">Northeastern University, Boston, MA</p>
         <div className="hero-divider" />
         <p className="hero-eyebrow">Computer Science · Artificial Intelligence · Electrical Engineering</p>
         <div className="hero-btns">
