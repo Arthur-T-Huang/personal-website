@@ -1,5 +1,19 @@
 export const experience = [
   {
+    id: 'leidos',
+    period: 'June 2026 — Incoming',
+    location: 'Gaithersburg, MD',
+    role: 'Systems Engineering Intern',
+    company: 'Leidos',
+    logo: 'https://cdn.cookielaw.org/logos/82ea8862-6cf6-4c8b-bf86-9187b99b6cfa/2243ffc6-03ff-4ce5-9d80-8b356d8faed1/INT_lds_rgb_pos.png',
+    logoAlt: 'Leidos',
+    logoStyle: { maxWidth: '240px', height: '72px' },
+    bullets: [
+      'Develop system architecture, concept development, and risk management on IRAD air traffic control projects.',
+      'Support the design and production of program software for aircraft safety and efficiency across world airspace.',
+    ],
+  },
+  {
     id: 'harvard',
     period: 'Jan. 2026 — Present',
     location: 'Cambridge, MA',

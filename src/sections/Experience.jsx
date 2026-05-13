@@ -13,7 +13,7 @@ export default function Experience() {
           {experience.map((job, i) => (
             <div className={`exp-card reveal ${stagger[i] || ''}`} key={job.id}>
               <div className="exp-meta">
-                <img src={job.logo} alt={job.logoAlt} className="exp-logo" />
+                <img src={job.logo} alt={job.logoAlt} className="exp-logo" style={job.logoStyle || {}} />
                 <p className="exp-date">{job.period}</p>
                 <p className="exp-location">{job.location}</p>
               </div>
