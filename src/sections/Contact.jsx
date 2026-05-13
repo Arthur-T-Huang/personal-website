@@ -91,7 +91,7 @@ export default function Contact() {
                   required
                   value={form.message}
                   onChange={handleChange}
-                  placeholder="What's on your mind?"
+                  placeholder="What would you like to discuss?"
                 />
               </div>
               {status === 'error' && (
