@@ -1,7 +1,7 @@
 export const experience = [
   {
     id: 'leidos',
-    period: 'June 2026 — Incoming',
+    period: 'June 2026 — Present',
     location: 'Gaithersburg, MD',
     role: 'Systems Engineering Intern',
     company: 'Leidos',
@@ -15,15 +15,15 @@ export const experience = [
   },
   {
     id: 'harvard',
-    period: 'Jan. 2026 — Present',
+    period: 'Jan. 2026 — May 2026',
     location: 'Cambridge, MA',
     role: 'Technology Engineer Co-op',
     company: 'Harvard University Information Technology',
     logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Harvard_University_logo.svg/250px-Harvard_University_logo.svg.png',
     logoAlt: 'Harvard University',
     bullets: [
-      'Develop and implement solutions to technological issues throughout the departments and labs of Harvard University.',
-      'Address and service online tickets for technical problems from students, faculty, and alumni network.',
+      'Addressed technological issues in multi-factor authentication, network connectivity, and user security throughout the departments and labs of Harvard University, diagnosing platforms such as Okta Verify, Harvard Key, and Microsoft 365.',
+      'Serviced online tickets for technical problems from 50,000+ students, faculty, and alumni of Harvard University.',
     ],
   },
   {
