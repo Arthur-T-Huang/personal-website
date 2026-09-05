@@ -9,7 +9,9 @@ export const experience = [
     logoAlt: 'Leidos',
     logoStyle: { maxWidth: '240px', height: '72px' },
     bullets: [
-      'Develop system architecture, concept development, and risk management on IRAD air traffic control projects.',
+      'Complete software and systems tickets on the Common Baseline (CB) service for LCAP (Leidos Common Automation Platform), the SkyLine-X–based solution consolidating the FAAs ERAM and STARS systems.',
+      'Implemented a service health check using SNMP (snmpget) that polls 14 services and up to 20 sub-components each at a user-configurable interval, reporting availability across the platform, and deployed to a Kubernetes cluster.',
+      'Implemented configuration schemas for the CB test harness and extended it for compatibility across multiple platforms',
       'Support the design and production of program software for aircraft safety and efficiency across world airspace.',
     ],
   },
